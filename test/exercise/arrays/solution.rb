@@ -2,7 +2,7 @@ module Exercise
   module Arrays
     class << self
       def replace(array)
-        max = array.max
+        max = get_max(array)
         array.collect { |num| num >= 0 ? max : num }
       end
 
@@ -22,6 +22,10 @@ module Exercise
         else
           -1
         end
+      end
+
+      def get_max(array)
+        array.inject(0) { |acc, num| num > acc ? num : acc }
       end
     end
   end
